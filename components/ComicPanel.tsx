@@ -57,13 +57,21 @@ export const ComicPanel: React.FC<ComicPanelProps> = ({ panelData }) => {
       );
     }
     if (imageUrl) {
-      return <img src={imageUrl} alt={panelData.scene} className="w-full h-full object-cover" />;
+      return <img 
+        id={`comic-panel-image-${panelData.panel}`}
+        src={imageUrl} 
+        alt={panelData.scene} 
+        className="w-full h-full object-cover" 
+      />;
     }
     return null;
   };
 
   return (
-    <div className="bg-slate-800 rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:ring-2 hover:ring-yellow-400 ring-1 ring-yellow-400/10">
+    <div 
+      id={`comic-panel-${panelData.panel}`}
+      className="bg-slate-800 rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:ring-2 hover:ring-yellow-400 ring-1 ring-yellow-400/10"
+    >
       <div className="aspect-square w-full bg-slate-800 flex items-center justify-center relative">
         <ImageDisplay />
       </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import type { ComicPanelData } from '../types';
 import { ComicPanel } from './ComicPanel';
 import { LoadingSpinner } from './LoadingSpinner';
+import { ComicDownloader } from './ComicDownloader';
 
 interface ComicStripProps {
   panels: ComicPanelData[];
@@ -43,6 +44,16 @@ export const ComicStrip: React.FC<ComicStripProps> = ({ panels, isLoading, error
 
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-1">
+        <div className="col-span-1 md:col-span-2 flex justify-end mb-4">
+          <ComicDownloader 
+            comicPanels={panels.map(panel => ({
+              id: panel.panel,
+              text: panel.scene,
+              // No need to pass image URL as we'll capture using html2canvas
+            }))} 
+            title="My Comic Strip"
+          />
+        </div>
         {panels.map((panelData) => (
           <ComicPanel key={panelData.panel} panelData={panelData} />
         ))}

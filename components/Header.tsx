@@ -4,12 +4,10 @@ import GithubLogo from './icons/GithubLogo';
 
 export const Header: React.FC = () => {
   return (
-    <header className="backdrop-blur-sm shadow-md sticky top-0 z-10">
-      <div className="px-6 py-3 flex items-center justify-between">
+    <header className="backdrop-blur-sm shadow-md sticky top-0 z-10  bg-gray-900/50 border-b border-yellow-400/10">
+      <div className="px-5 px py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <h1 className="text-xl md:text-2xl font-bold">
-            Delulu - AI Powered Comic Generator
-          </h1>
+      <img src="/logo.png" alt="Delulu Logo" className="w-48 h-38  " />
         </div>
         <a
           href="https://github.com/ragultv/delulu.git"
