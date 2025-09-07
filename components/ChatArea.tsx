@@ -121,7 +121,7 @@ export const ChatArea = forwardRef<ChatAreaRef, ChatAreaProps>(({ onSendMessage,
       <div className="flex-1 overflow-y-auto p-4 space-y-6">
         {messages.length === 0 ? (
           <div className="text-center text-gray-400 mt-8 flex flex-col items-center">
-            <SparklesIcon className="w-16 h-16 mx-auto mb-4 text-yellow-400 opacity-30" />
+            <img src="/logo.png" alt="Delulu Logo" className="w-30 h-20 mx-auto mb-4" />
             <h3 className="text-lg font-semibold text-gray-200">Start Your Comic Creation</h3>
             <p className="max-w-xs mt-1">
               Provide a script in the text box below. Use the format <code className="bg-gray-700 text-yellow-300 px-1 py-0.5 rounded text-sm">character: dialogue</code> for each line to bring your story to life.
