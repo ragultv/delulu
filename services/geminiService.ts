@@ -1,5 +1,5 @@
 // Fix: Removed unused Modality import.
-import { GoogleGenAI, Type } from "@google/genai";
+import { GoogleGenAI, Type, Modality } from "@google/genai";
 import type { ComicPanelData } from '../types';
 
 if (!process.env.API_KEY) {
@@ -161,21 +161,24 @@ When a user sends a comic script, respond naturally as if you're about to genera
 // Fix: Using `generateImages` with `imagen-4.0-generate-001` for image generation from a text prompt, as per the guidelines.
 export const generatePanelImage = async (prompt: string): Promise<string> => {
   try {
-    const response = await ai.models.generateImages({
-        model: 'imagen-4.0-generate-001',
-        prompt: prompt,
+    const response = await ai.models.generateContent({
+        model: 'gemini-2.5-flash-image-preview',
+        contents: {
+          parts: [
+            { text: prompt }
+          ]
+        },
         config: {
-          numberOfImages: 1,
-          aspectRatio: '1:1',
-          outputMimeType: 'image/png',
+          responseModalities: [Modality.IMAGE, Modality.TEXT],
         },
     });
     
-    if (response.generatedImages && response.generatedImages.length > 0) {
-      const image = response.generatedImages[0];
-      const base64ImageBytes: string = image.image.imageBytes;
-      const mimeType = image.image.mimeType || 'image/png';
-      return `data:${mimeType};base64,${base64ImageBytes}`;
+    for (const part of response.candidates[0].content.parts) {
+      if (part.inlineData) {
+        const base64ImageBytes: string = part.inlineData.data;
+        const mimeType = part.inlineData.mimeType;
+        return `data:${mimeType};base64,${base64ImageBytes}`;
+      }
     }
     
     throw new Error("No image was generated.");
