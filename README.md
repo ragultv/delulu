@@ -28,4 +28,4 @@ Delulu isn’t just about making comics—it’s about **showcasing the possibil
 
 # Live Demo
 
-Experience the magic yourself: [Delulu AI Studio App](https://ai.studio/apps/drive/1GET7L3JVwowGLrzZwqoQaKgPgwDaVCDA)
+Experience the magic yourself: [Delulu AI Studio App](https://delulu-theta.vercel.app/)
