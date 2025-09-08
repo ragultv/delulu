@@ -59,19 +59,17 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="h-screen bg-gradient-to-br from-gray-900 to-slate-800 text-white font-sans flex flex-col" style={{fontFamily: "'Nunito', sans-serif"}}>
-      <Header />
-      <main className="flex-1 min-h-0 flex flex-col">
+    <div className="vh-100 bg-gradient-to-br from-gray-900 to-slate-800 text-white font-sans flex flex-col" style={{fontFamily: "'Nunito', sans-serif"}}>
+  <Header />
+  <main className="flex-1 min-h-0 flex flex-col">
         {isMobile ? (
           // Mobile Layout with Tabs
-          <div className="flex-1 flex flex-col bg-slate-800/60 backdrop-blur-xl border border-yellow-400/10">
-            <MobileLayout
-              panels={panels}
-              isGenerating={isGenerating}
-              error={error}
-              onSendMessage={handleSendMessage}
-            />
-          </div>
+          <MobileLayout
+            panels={panels}
+            isGenerating={isGenerating}
+            error={error}
+            onSendMessage={handleSendMessage}
+          />
         ) : (
           // Desktop Layout
           <>

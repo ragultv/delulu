@@ -1,10 +1,12 @@
-/* Prevent window scrollbars and full-height layout */
-html, body, #root {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
+/* Prevent window scrollbars and lock full-height layout on desktop only */
+@media (min-width: 768px) {
+  html, body, #root {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+  }
 }
 /* Global styles for scrollbars and animations */
 
@@ -117,6 +119,7 @@ button:focus {
   height: 100vh;
   height: 100dvh; /* Dynamic viewport height for mobile browsers */
 }
+
 
 /* Comic panel transitions */
 .comic-panel-enter {

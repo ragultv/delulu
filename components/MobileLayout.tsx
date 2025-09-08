@@ -44,7 +44,7 @@ export const MobileLayout: React.FC<MobileLayoutProps> = ({
   }, [activeTab]);
 
   return (
-    <div className="flex flex-col h-full">
+  <div className="flex flex-col flex-1 min-h-0">
       {/* Fixed Tabs Header */}
       <div className="flex border-b border-slate-700 shrink-0 bg-gray-900/80 backdrop-blur-sm sticky top-0 z-10">
         <button
@@ -75,8 +75,8 @@ export const MobileLayout: React.FC<MobileLayoutProps> = ({
         </button>
       </div>
 
-      {/* Scrollable Content */}
-      <div className="flex-1 flex flex-col min-h-0">
+  {/* Scrollable Content */}
+  <div className="flex-1 flex flex-col min-h-0 overflow-y-auto touch-scroll overscroll-contain scrollbar-custom">
         {/* Chat Area */}
         <div
           className={`flex-1 flex flex-col min-h-0 ${

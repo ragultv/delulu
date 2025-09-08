@@ -199,7 +199,7 @@ Dog: "Want to chase the humans together anyway?"`
   };
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col flex-1 min-h-0">
       {/* Messages Area */}
       <div className="flex-1 overflow-y-auto p-4 md:p-4 space-y-4 md:space-y-4 scrollbar-custom touch-scroll">
         {messages.length === 0 ? (
