@@ -43,8 +43,8 @@ export const ComicStrip: React.FC<ComicStripProps> = ({ panels, isLoading, error
     }
 
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-1">
-        <div className="col-span-1 md:col-span-2 flex justify-end mb-4">
+      <div className="w-full max-w-full overflow-hidden">
+        <div className="flex justify-end mb-2">
           <ComicDownloader 
             comicPanels={panels.map(panel => ({
               id: panel.panel,
@@ -54,15 +54,29 @@ export const ComicStrip: React.FC<ComicStripProps> = ({ panels, isLoading, error
             title="My Comic Strip"
           />
         </div>
-        {panels.map((panelData) => (
-          <ComicPanel key={panelData.panel} panelData={panelData} />
-        ))}
+        {/* Desktop: 2-column grid, Mobile: single column */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 w-full comic-grid">
+          {panels.map((panelData, index) => (
+            <div key={panelData.panel} className="w-full min-w-0 overflow-hidden">
+              {/* Mobile: show panel numbers, Desktop: hide them (they're shown in the panels themselves) */}
+              <div className="mb-2 md:hidden">
+                <p className="text-center text-yellow-400 font-medium text-sm bg-gray-800/50 rounded-full px-3 py-1 inline-block">Panel {index + 1}</p>
+              </div>
+              <div className="w-full max-w-sm md:max-w-full mx-auto shadow-xl rounded-lg overflow-hidden">
+                <ComicPanel panelData={panelData} />
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="text-center mt-4">
+          <p className="text-gray-400 text-sm">🎉 That's your complete comic story! 🎉</p>
+        </div>
       </div>
     );
   };
   
   return (
-    <div className="h-full">
+    <div className="min-h-0">
       {renderContent()}
     </div>
   );
