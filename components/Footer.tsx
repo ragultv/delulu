@@ -7,7 +7,7 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({ isMobile = false }) => {
   return (
     <footer className={`
-      bg-gray-900/90 backdrop-blur-sm border-t border-yellow-400/10 shrink-0
+      bg-gray-900/90 backdrop-blur-sm border-t border-yellow-400/10 shrink-0 relative
       ${isMobile ? 'mobile-footer-fixed p-3' : 'p-3'}
     `}>
       <div className="text-center">

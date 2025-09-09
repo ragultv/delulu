@@ -170,7 +170,7 @@ Dog: "Want to chase the humans together anyway?"`
       // Reset height to auto to get the actual content height
       textarea.style.height = 'auto';
       const scrollHeight = textarea.scrollHeight;
-      const maxHeight = 200;
+      const maxHeight = 80; // Match CSS max-height
       const newHeight = Math.min(scrollHeight, maxHeight);
       
       // Set the height
@@ -199,9 +199,9 @@ Dog: "Want to chase the humans together anyway?"`
   };
 
   return (
-    <div className="flex flex-col flex-1 min-h-0">
-      {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-4 md:p-4 space-y-4 md:space-y-4 scrollbar-custom touch-scroll">
+    <div className="flex flex-col h-full overflow-hidden">
+      {/* Messages Area - Fixed container height issue for scrolling */}
+      <div className="flex-1 overflow-y-auto touch-scroll overscroll-contain scrollbar-custom p-4 md:p-4 space-y-4 md:space-y-4">
         {messages.length === 0 ? (
           <div className="text-center text-gray-400 mt-4 md:mt-4 flex flex-col items-center">
             <img src="/logo.png" alt="Delulu Logo" className="w-32 h-24 mx-auto mb-6 md:w-30 md:h-16 mx-auto mb-1 md:mb-2" />
@@ -286,10 +286,10 @@ Dog: "Want to chase the humans together anyway?"`
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Input Area */}
-      <div className="border-t border-slate-700 shrink-0">
-        <div className="p-4 md:p-4">
-          <div className="relative textarea-container">
+      {/* Input Area - Fixed at bottom with improved position and constraints */}
+      <div className="border-t border-slate-700 shrink-0 sticky bottom-0 z-30 bg-slate-800/95 backdrop-blur-sm">
+        <div className="p-4 md:p-3">
+          <div className="relative textarea-container max-h-[100px]">
             <textarea
               ref={textareaRef}
               value={inputValue}
@@ -299,7 +299,7 @@ Dog: "Want to chase the humans together anyway?"`
               className="w-full bg-slate-900/80 border border-slate-600 rounded-lg p-4 md:p-3 pr-16 md:pr-16 text-base md:text-sm text-gray-200 focus:ring-2 focus:ring-yellow-400 focus:outline-none resize-none textarea-expand-up overflow-y-auto scrollbar-custom"
               style={{ 
                 minHeight: '56px', 
-                maxHeight: '200px'
+                maxHeight: '80px'
               }}
               disabled={isGenerating}
             />

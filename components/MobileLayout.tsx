@@ -76,7 +76,7 @@ export const MobileLayout: React.FC<MobileLayoutProps> = ({
       </div>
 
   {/* Scrollable Content */}
-  <div className="flex-1 flex flex-col min-h-0 overflow-y-auto touch-scroll overscroll-contain scrollbar-custom">
+  <div className="flex-1 flex flex-col min-h-0 overflow-y-auto touch-scroll overscroll-contain scrollbar-custom h-full">
         {/* Chat Area */}
         <div
           className={`flex-1 flex flex-col min-h-0 ${
