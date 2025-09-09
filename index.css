@@ -34,10 +34,19 @@
   background: transparent;
 }
 
-/* Prevent horizontal scrollbar on grid containers */
+/* Prevent horizontal scrollbar on grid containers and fix panel display */
 .comic-grid {
   overflow-x: hidden;
   max-width: 100%;
+  width: 100%;
+}
+
+/* Fix comic panel display issues */
+.comic-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 /* Hide scrollbar completely for no-scrollbar class */

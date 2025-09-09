@@ -70,9 +70,9 @@ export const ComicPanel: React.FC<ComicPanelProps> = ({ panelData }) => {
   return (
     <div 
       id={`comic-panel-${panelData.panel}`}
-      className="bg-slate-800 rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:ring-2 hover:ring-yellow-400 ring-1 ring-yellow-400/10"
+      className="bg-slate-800 rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:ring-2 hover:ring-yellow-400 ring-1 ring-yellow-400/10"
     >
-      <div className="aspect-square w-full bg-slate-800 flex items-center justify-center relative">
+      <div className="aspect-square w-full h-auto bg-slate-800 flex items-center justify-center relative">
         <ImageDisplay />
       </div>
       <div className="p-4 flex-grow">

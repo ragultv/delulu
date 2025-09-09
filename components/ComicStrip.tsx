@@ -57,12 +57,12 @@ export const ComicStrip: React.FC<ComicStripProps> = ({ panels, isLoading, error
         {/* Desktop: 2-column grid, Mobile: single column */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 w-full comic-grid">
           {panels.map((panelData, index) => (
-            <div key={panelData.panel} className="w-full min-w-0 overflow-hidden">
+            <div key={panelData.panel} className="w-full">
               {/* Mobile: show panel numbers, Desktop: hide them (they're shown in the panels themselves) */}
               <div className="mb-2 md:hidden">
                 <p className="text-center text-yellow-400 font-medium text-sm bg-gray-800/50 rounded-full px-3 py-1 inline-block">Panel {index + 1}</p>
               </div>
-              <div className="w-full max-w-sm md:max-w-full mx-auto shadow-xl rounded-lg overflow-hidden">
+              <div className="w-full shadow-xl rounded-lg overflow-hidden">
                 <ComicPanel panelData={panelData} />
               </div>
             </div>
